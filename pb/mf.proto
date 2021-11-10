@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mfproto;
+option go_package = "pb/";
+
+message UserRequest {
+    string user_id = 1;
+    string pass = 2;
+}
+
+message UserResponse {
+    bool is_success = 1;
+}
+
+service MFCrawlingService {
+    rpc CrawlingHandler(UserRequest) returns (UserResponse) {}
+}
+
